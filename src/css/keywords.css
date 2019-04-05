@@ -1,0 +1,11 @@
+.must-keyword {
+  color: red;
+}
+
+.should-keyword {
+  color: darkgoldenrod;
+}
+
+.may-keyword {
+  color: green;
+}
