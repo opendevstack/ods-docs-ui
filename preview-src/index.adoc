@@ -4,11 +4,16 @@ Author Name
 :idseparator: -
 :!example-caption:
 
+image:multirepo-ssg.svg[Multirepo SSG,200,float=right]
 Platonem complectitur mediocritatem ea eos.
 Ei nonumy deseruisse ius.
 Mel id omnes verear.
 Vis no velit audiam, sonet <<dependencies,praesent>> eum ne.
 *Prompta eripuit* nec ad.
+Integer diam enim, dignissim eget eros et, ultricies mattis odio.
+Vestibulum consectetur nec urna a luctus.
+Quisque pharetra tristique arcu fringilla dapibus.
+Curabitur ut massa aliquam, cursus enim et, accumsan lectus.
 
 == Cu solet
 
@@ -200,3 +205,10 @@ Cum dicat putant ne.
 Est in reque homero principes, meis deleniti mediocrem ad has.
 Altera atomorum his ex, has cu elitr melius propriae.
 Eos suscipit scaevola at.
+
+[quote, 'Famous Person. Cum dicat putant ne.', 'Cum dicat putant ne. https://example.com[Famous Person Website]']
+____
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget leo nunc, nec tempus mi? Curabitur id nisl mi, ut vulputate urna. Quisque porta facilisis tortor, vitae bibendum velit fringilla vitae! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget leo nunc, nec tempus mi? Curabitur id nisl mi, ut vulputate urna. Quisque porta facilisis tortor, vitae bibendum velit fringilla vitae!
+____
+
+That's all, folks!
