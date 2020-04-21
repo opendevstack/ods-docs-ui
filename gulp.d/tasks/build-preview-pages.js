@@ -47,14 +47,6 @@ module.exports = (src, previewSrc, previewDest, sink = () => map()) => (done) =>
               uiModel.page.contents = Buffer.from(doc.convert())
             }
             file.extname = '.html'
-<<<<<<< HEAD:gulpfile.js/tasks/preview-pages.js
-            file.contents = Buffer.from(layouts[uiModel.page.layout](uiModel))
-            next(null, file)
-          }),
-        )
-        .pipe(vfs.dest(previewDest))
-        .pipe(sink()),
-=======
             try {
               file.contents = Buffer.from(layouts.get(uiModel.page.layout)(uiModel))
               next(null, file)
@@ -66,7 +58,6 @@ module.exports = (src, previewSrc, previewDest, sink = () => map()) => (done) =>
         .pipe(vfs.dest(previewDest))
         .on('error', (e) => done)
         .pipe(sink())
->>>>>>> gitlab/master:gulp.d/tasks/build-preview-pages.js
     )
 
 function loadSampleUiModel (src) {
@@ -78,7 +69,7 @@ function registerPartials (src) {
     map((file, enc, next) => {
       handlebars.registerPartial(file.stem, file.contents.toString())
       next()
-    }),
+    })
   )
 }
 
@@ -89,19 +80,13 @@ function registerHelpers (src) {
     map((file, enc, next) => {
       handlebars.registerHelper(file.stem, requireFromString(file.contents.toString()))
       next()
-    }),
+    })
   )
 }
 
 function compileLayouts (src) {
   const layouts = new Map()
   return vfs.src('layouts/*.hbs', { base: src, cwd: src }).pipe(
-<<<<<<< HEAD:gulpfile.js/tasks/preview-pages.js
-    map((file, enc, next) => {
-      layouts[file.stem] = handlebars.compile(file.contents.toString(), { preventIndent: true })
-      next()
-    }),
-=======
     map(
       (file, enc, next) => {
         const srcName = path.join(src, file.relative)
@@ -113,7 +98,6 @@ function compileLayouts (src) {
         done()
       }
     )
->>>>>>> gitlab/master:gulp.d/tasks/build-preview-pages.js
   )
 }
 
