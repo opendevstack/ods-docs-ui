@@ -102,5 +102,5 @@ module.exports = require('./lib/export-tasks')(
   bundleTask,
   bundlePackTask,
   previewTask,
-  previewBuildTask
+  previewBuildTask,
 )

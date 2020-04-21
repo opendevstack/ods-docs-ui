@@ -52,7 +52,7 @@
           return '.nav-item[data-id="' + itemId + '"]'
         })
         .join(','),
-      menuPanel
+      menuPanel,
     ).forEach(function (item) {
       item.classList.add('is-active')
     })

@@ -26,8 +26,8 @@ module.exports = (src, previewSrc, previewDest, sink = () => map(), layouts = {}
         compileLayouts(src, layouts),
         registerPartials(src),
         registerHelpers(src),
-        copyImages(previewSrc, previewDest)
-      )
+        copyImages(previewSrc, previewDest),
+      ),
     ),
   ])
     .then(([baseUiModel]) => Object.assign(baseUiModel, { env: process.env }))
@@ -59,10 +59,10 @@ module.exports = (src, previewSrc, previewDest, sink = () => map(), layouts = {}
             file.extname = '.html'
             file.contents = Buffer.from(layouts[uiModel.page.layout](uiModel))
             next(null, file)
-          })
+          }),
         )
         .pipe(vfs.dest(previewDest))
-        .pipe(sink())
+        .pipe(sink()),
     )
 
 function loadSampleUiModel (src) {
@@ -74,7 +74,7 @@ function registerPartials (src) {
     map((file, enc, next) => {
       handlebars.registerPartial(file.stem, file.contents.toString())
       next()
-    })
+    }),
   )
 }
 
@@ -83,7 +83,7 @@ function registerHelpers (src) {
     map((file, enc, next) => {
       handlebars.registerHelper(file.stem, requireFromString(file.contents.toString()))
       next()
-    })
+    }),
   )
 }
 
@@ -92,7 +92,7 @@ function compileLayouts (src, layouts) {
     map((file, enc, next) => {
       layouts[file.stem] = handlebars.compile(file.contents.toString(), { preventIndent: true })
       next()
-    })
+    }),
   )
 }
 
