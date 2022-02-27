@@ -18,7 +18,7 @@ site:
     latestVersion: *latest_version_abc
   - &component
     name: xyz
-    title: Project XYZ
+    title: &component_title Project XYZ
     url: /xyz/6.0/index.html
     versions:
     - &latest_version_xyz
@@ -26,6 +26,7 @@ site:
       version: '6.0'
       displayVersion: '6.0'
     - &component_version
+      title: *component_title
       url: '#'
       version: '5.2'
       displayVersion: '5.2'
@@ -36,7 +37,7 @@ site:
       version: '5.0'
       displayVersion: '5.0'
     latestVersion: *latest_version_xyz
-  - name: 123
+  - name: '123'
     title: Project 123
     url: '#'
     versions:
@@ -60,9 +61,18 @@ page:
   version: '5.2'
   displayVersion: '5.2'
   module: ROOT
-  editUrl: http://example.com/project-xyz/blob/master/index.adoc
+  relativeSrcPath: index.adoc
+  editUrl: http://example.com/project-xyz/blob/main/index.adoc
   origin:
     private: false
+  previous:
+    content: Quickstart
+    url: '#'
+    urlType: 'internal'
+  next:
+    content: Liber Recusabo
+    url: '#'
+    urlType: 'internal'
   breadcrumbs:
   - content: Quickstart
     url: '#'
@@ -86,9 +96,6 @@ page:
     url: '#'
   navigation:
   - root: true
-    content: Project XYZ
-    url: '#'
-    urlType: fragment
     items:
     - content: Quickstart
       url: '#'
@@ -114,3 +121,6 @@ page:
       - content: Importing and Exporting
         url: '#'
         urlType: fragment
+      - content: Some Code
+        url: '/xyz/5.2/index.html#some-code'
+        urlType: internal

@@ -1,7 +1,14 @@
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
-      <a class="navbar-item" href="{{or site.url (or siteRootUrl siteRootPath)}}">{{site.title}}</a>
+      <a class="navbar-item" href="{{{or site.url siteRootPath}}}">{{site.title}}</a>
+      {{#if env.SITE_SEARCH_PROVIDER}}
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search the docs"{{#if page.home}} autofocus{{/if}}>
+        </div>
+      </div>
+      {{/if}}
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
         <span></span>
@@ -10,18 +17,6 @@
     </div>
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" href="#">Components</a>
-          <div class="navbar-dropdown">
-          {{#each site.components}}
-            {{#each ./versions}}
-            {{~#if (eq this ../latestVersion)}}
-            <a class="navbar-item" href="{{{relativize @root.page.url ./url}}}">{{{../title}}}</a>
-            {{/if}}
-            {{/each}}
-          {{/each}}
-          </div>
-        </div>
         <a class="navbar-item" href="{{ site.url }}">Home</a>
       </div>
     </div>
